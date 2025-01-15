@@ -471,7 +471,8 @@
             margin-left: 2rem;
             border-left: 2px solid var(--primary-color);
             margin-bottom: 2rem;
-            opacity: 0;
+            opacity: 1; /* Changed from 0 to 1 */
+            animation: fadeInUp 1s ease-out; /* Added animation */
         }
 
         .timeline-item::before {
@@ -495,6 +496,18 @@
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
+
+        .achievements {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .achievements li {
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+
 
         .languages {
             display: grid;
