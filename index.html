@@ -16,19 +16,116 @@
         <script
             src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <style>
-    :root {
-        --primary-color: #3b82f6;
-        --secondary-color: #10b981;
-        --text-color: #1f2937;
-        --bg-color: #ffffff;
-        --card-bg: #f8fafc;
-        --header-bg: rgba(255, 255, 255, 0.98);
-        --gradient-1: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
-        --gradient-2: linear-gradient(45deg, #6366f1 0%, #3b82f6 100%);
-        --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-    }
+            :root {
+                /* Default theme - Blue */
+                --primary-color: #3b82f6;
+                --secondary-color: #10b981;
+                --text-color: #1f2937;
+                --bg-color: #ffffff;
+                --card-bg: #f8fafc;
+                --header-bg: rgba(255, 255, 255, 0.98);
+                --gradient-1: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+                --gradient-2: linear-gradient(45deg, #6366f1 0%, #3b82f6 100%);
+            }
+            
+            /* Purple Theme */
+            .theme-purple {
+                --primary-color: #8b5cf6;
+                --secondary-color: #d946ef;
+                --text-color: #2d1b69;
+                --bg-color: #ffffff;
+                --card-bg: #f5f3ff;
+                --header-bg: rgba(255, 255, 255, 0.98);
+                --gradient-1: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+                --gradient-2: linear-gradient(45deg, #7c3aed 0%, #8b5cf6 100%);
+            }
+            
+            /* Green Theme */
+            .theme-green {
+                --primary-color: #10b981;
+                --secondary-color: #34d399;
+                --text-color: #064e3b;
+                --bg-color: #ffffff;
+                --card-bg: #ecfdf5;
+                --header-bg: rgba(255, 255, 255, 0.98);
+                --gradient-1: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+                --gradient-2: linear-gradient(45deg, #059669 0%, #10b981 100%);
+            }
+            
+            /* Orange Theme */
+            .theme-orange {
+                --primary-color: #f97316;
+                --secondary-color: #fb923c;
+                --text-color: #7c2d12;
+                --bg-color: #ffffff;
+                --card-bg: #fff7ed;
+                --header-bg: rgba(255, 255, 255, 0.98);
+                --gradient-1: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+                --gradient-2: linear-gradient(45deg, #ea580c 0%, #f97316 100%);
+            }
+            
+            /* Theme Selector Styles */
+.theme-selector {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+.theme-btn.default {
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+}
+
+.theme-btn.purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+}
+
+.theme-btn.green {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+}
+
+.theme-btn.orange {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+}
+
+/* Dark mode specific styles */
+.dark-mode .theme-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .theme-selector {
+    background: var(--card-bg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Add hover effect for dark mode */
+.dark-mode .theme-btn:hover {
+    transform: scale(1.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
 
     .dark-mode {
         --primary-color: #60a5fa;
@@ -201,6 +298,153 @@
     .skill-card::before {
         transform: translateZ(-1px);
     }
+/* Enhanced Project Cards */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-img {
+    /* ขนาดที่ต้องการให้แสดง */
+    width: 100px; /* ปรับขนาดให้เล็กลงหากต้องการ */
+    height: 100px; /* ปรับความสูงให้เหมาะสม */
+    overflow: hidden; /* ป้องกันการ overflow ของรูปภาพ */
+    border-radius: 8px; /* ขอบมนของภาพ */
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ควบคุมการครอบตัดภาพให้พอดีกับพื้นที่ */
+    display: block;
+    margin: 0 auto;
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-img i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img i {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.project-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    padding: 0.4rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.tag:hover {
+    opacity: 1;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.project-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.project-btn.primary {
+    background: var(--gradient-1);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-btn.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.project-btn:hover {
+    transform: translateY(-2px);
+}
+
+.project-btn.primary:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-btn.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Dark mode specific styles for project cards */
+.dark-mode .project-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .project-btn.secondary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.dark-mode .project-btn.secondary:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
 
     /* Project Cards Enhancement */
     .project-card {
@@ -662,6 +906,13 @@
         margin: 0 auto;
     }
 
+    .not-deploy {
+        pointer-events: none; /* ป้องกันการคลิก */
+        opacity: 0.6; /* ทำให้ดูเหมือนปุ่มที่ไม่ได้ใช้งาน */
+        cursor: not-allowed; /* เปลี่ยน cursor เป็น 'not-allowed' */
+    }
+    
+
     .section-title {
         font-size: 2.5rem;
         margin-bottom: 4rem;
@@ -912,297 +1163,299 @@
         }
     }
     </style>
+    </style>
+</head>
+<body class="theme-default">
+    <div id="particles-js"></div>
+    <header>
+        <nav>
+            <div class="logo">PL</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
 
-        <style>
-	#lovable-badge {
-		position: fixed;
-		bottom: 10px;
-		right: 10px;
-		width: 141px;
-		padding: 5px 13px;	
-		background-color: #000;
-		color: #fff;
-		font-size: 12px;
-		border-radius: 5px;
-		font-family: sans-serif;
-		display: flex;
-		align-items: center;
-		gap: 4px;
-	}
-</style>
-    </head>
-    <body class="theme-default">
-        <div id="particles-js"></div>
-        <header>
-            <nav>
-                <div class="logo">PL</div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <button id="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </nav>
-        </header>
+    <div class="theme-selector">
+        <button class="theme-btn default" onclick="setTheme('default')"
+            title="Default Blue Theme"></button>
+        <button class="theme-btn purple" onclick="setTheme('purple')"
+            title="Purple Theme"></button>
+        <button class="theme-btn green" onclick="setTheme('green')"
+            title="Green Theme"></button>
+        <button class="theme-btn orange" onclick="setTheme('orange')"
+            title="Orange Theme"></button>
+    </div>
 
-        <div class="theme-selector">
-            <button class="theme-btn default" onclick="setTheme('default')"
-                title="Default Theme"></button>
-            <button class="theme-btn purple" onclick="setTheme('purple')"
-                title="Purple Theme"></button>
-            <button class="theme-btn blue" onclick="setTheme('blue')"
-                title="Blue Theme"></button>
-            <button class="theme-btn white" onclick="setTheme('white')"
-                title="White Theme"></button>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Peerawit<br>Lakhampa</h1>
+            <p>Frontend - Backend Developer & Computer Engineering
+                Student</p>
+            <a href="#contact" class="btn">Let's Connect</a>
+        </div>
+        <div class="hero-image">
+            <img src="./img/me.jpg" alt="Peerawit Lakhampa">
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <p>As a Computer Engineering student with a passion for web
+            development, I combine technical expertise with creative
+            problem-solving to build engaging digital experiences. My focus
+            is on creating user-centric, performant web applications that
+            make a difference.</p>
+
+        <div class="education-timeline">
+            <h3>Education</h3>
+            <div class="timeline-item">
+                <div class="timeline-date">2021 - Present</div>
+                <div class="timeline-title">Bachelor of Engineering in
+                    Computer Engineering</div>
+                <p>Mahanakorn University of Technology</p>
+                <ul class="achievements">
+                    <li>GPA: 3.00</li>
+                    <li>Relevant Coursework: Web Development, Database
+                        Systems, Software Engineering</li>
+                </ul>
+            </div>
         </div>
 
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Peerawit<br>Lakhampa</h1>
-                <p>Frontend - Backend Developer & Computer Engineering
-                    Student</p>
-                <a href="#contact" class="btn">Let's Connect</a>
-            </div>
-            <div class="hero-image">
-                <img src="./img/me.jpg" alt="Peerawit Lakhampa">
+        <section id="languages" class="section">
+            <h3>Languages</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Thai</h4>
+                    <p>Native Proficiency</p>
+                    <p>• Reading: Native</p>
+                    <p>• Writing: Native</p>
+                    <p>• Speaking: Native</p>
+                </div>
+                <div class="skill-card">
+                    <h4>English</h4>
+                    <p>Intermediate Level</p>
+                    <p>• Reading: Intermediate</p>
+                    <p>• Writing: Intermediate</p>
+                    <p>• Speaking: Intermediate</p>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
-            <p>As a Computer Engineering student with a passion for web
-                development, I combine technical expertise with creative
-                problem-solving to build engaging digital experiences. My focus
-                is on creating user-centric, performant web applications that
-                make a difference.</p>
+    </section>
 
-            <div class="education-timeline">
-                <h3>Education</h3>
-                <div class="timeline-item">
-                    <div class="timeline-date">2021 - Present</div>
-                    <div class="timeline-title">Bachelor of Engineering in
-                        Computer Engineering</div>
-                    <p>Mahanakorn University of Technology</p>
-                    <ul class="achievements">
-                        <li>GPA: 3.00</li>
-                        <li>Relevant Coursework: Web Development, Database
-                            Systems, Software Engineering</li>
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <!-- Frontend Skills -->
+        <div class="skills-category">
+            <h3><i class="fas fa-code"></i> Frontend Development</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Core Technologies</h4>
+                    <ul class="skill-list">
+                        <li>HTML5 - Advanced</li>
+                        <li>CSS3 - Advanced</li>
+                        <li>JavaScript (ES6+) - Intermediate</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>Frameworks & Libraries</h4>
+                    <ul class="skill-list">
+                        <li>React.js - Intermediate</li>
+                        <li>Next.js - Basic</li>
+                        <li>Tailwind CSS - Intermediate</li>
                     </ul>
                 </div>
             </div>
+        </div>
 
-            <section id="languages" class="section">
-                <h3>Languages</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4>Thai</h4>
-                        <p>Native Proficiency</p>
-                        <p>• Reading: Native</p>
-                        <p>• Writing: Native</p>
-                        <p>• Speaking: Native</p>
-                    </div>
-                    <div class="skill-card">
-                        <h4>English</h4>
-                        <p>Intermediate Level</p>
-                        <p>• Reading: Intermediate</p>
-                        <p>• Writing: Intermediate</p>
-                        <p>• Speaking: Intermediate</p>
-                    </div>
+        <!-- Backend Skills -->
+        <div class="skills-category">
+            <h3><i class="fas fa-server"></i> Backend Development</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Core Technologies</h4>
+                    <ul class="skill-list">
+                        <li>Node.js - Intermediate</li>
+                        <li>Express.js - Intermediate</li>
+                        <li>RESTful APIs - Intermediate</li>
+                    </ul>
                 </div>
-            </section>
+                <div class="skill-card">
+                    <h4>Databases</h4>
+                    <ul class="skill-list">
+                        <li>MongoDB - Basic</li>
+                        <li>PostgreSQL - Basic</li>
+                        <li>OracleSQL - Basic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        </section>
+        <!-- Development Tools -->
+        <div class="skills-category">
+            <h3><i class="fas fa-tools"></i> Development Tools</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Version Control & Tools</h4>
+                    <ul class="skill-list">
+                        <li>Git & GitHub - Intermediate</li>
+                        <li>VS Code - Advanced</li>
+                        <li>npm/yarn - Intermediate</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h4>Other Tools</h4>
+                    <ul class="skill-list">
+                        <li>Webpack - Basic</li>
+                        <li>Firebase - Basic</li>
+                        <li>Docker - Basic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="skills" class="section">
-            <h2 class="section-title">Technical Skills</h2>
+    <section id="certifications" class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications">
+            <div class="certification-card">
+                <div class="certification-logo">
+                    <img src="./img/Udemy New.png"
+                        alt="Udemy Logo" class="logo-image">
+                </div>
+                <h3>Udemy: Web Development Bootcamp 2024
+                </h3>
+                <p>Meta Frontend Developer Certificate</p>
+                <p>Issued: 2024</p>
+            </div>
+            <!-- Add more certifications -->
+        </div>
+    </section>
 
-            <!-- Frontend Skills -->
-            <div class="skills-category">
-                <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4>Core Technologies</h4>
-                        <ul class="skill-list">
-                            <li>HTML5 - Advanced</li>
-                            <li>CSS3 - Advanced</li>
-                            <li>JavaScript (ES6+) - Intermediate</li>
-                        </ul>
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./img/tindog.png" alt="Project Image"
+                        class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Tindog</h3>
+                    <p>A responsive website built using Bootstrap 5 to
+                        simulate a dating platform for dogs, inspired by
+                        Tinder. The project showcases modern UI/UX design,
+                        custom Bootstrap components, and seamless
+                        responsiveness across devices.</p>
+                    <div class="project-tags">
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">Responsive Design</span>
+                        <span class="tag">UI/UX</span>
                     </div>
-                    <div class="skill-card">
-                        <h4>Frameworks & Libraries</h4>
-                        <ul class="skill-list">
-                            <li>React.js - Intermediate</li>
-                            <li>Next.js - Basic</li>
-                            <li>Tailwind CSS - Intermediate</li>
-                        </ul>
+                    <div class="project-buttons">
+                        <a href="https://mindenry.github.io/Tindog/"
+                            class="project-btn primary">View
+                            Project</a>
+                        <a href="https://github.com/Mindenry/Tindog"
+                            class="project-btn secondary">Source
+                            Code</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Backend Skills -->
-            <div class="skills-category">
-                <h3><i class="fas fa-server"></i> Backend Development</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4>Core Technologies</h4>
-                        <ul class="skill-list">
-                            <li>Node.js - Intermediate</li>
-                            <li>Express.js - Intermediate</li>
-                            <li>RESTful APIs - Intermediate</li>
-                        </ul>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./img/tmd.png" alt="Project Image"
+                        class="project-image"> </div>
+                <div class="project-content">
+                    <h3 class="project-title">Three Man Down Band</h3>
+                    <p>A music streaming and concert management website
+                        built using Bootstrap, HTML, CSS, and JavaScript.
+                        The platform simulates a Spotify-like experience,
+                        featuring the band's profile, discography, and an
+                        interactive music player.</p>
+                    <div class="project-tags">
+                        <span class="tag">Bootstrap 5</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Ticket Booking</span>
+                        <span class="tag">Music Streaming</span>
                     </div>
-                    <div class="skill-card">
-                        <h4>Databases</h4>
-                        <ul class="skill-list">
-                            <li>MongoDB - Basic</li>
-                            <li>PostgreSQL - Basic</li>
-                            <li>OracleSQL - Basic</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Development Tools -->
-            <div class="skills-category">
-                <h3><i class="fas fa-tools"></i> Development Tools</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h4>Version Control & Tools</h4>
-                        <ul class="skill-list">
-                            <li>Git & GitHub - Intermediate</li>
-                            <li>VS Code - Advanced</li>
-                            <li>npm/yarn - Intermediate</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h4>Other Tools</h4>
-                        <ul class="skill-list">
-                            <li>Webpack - Basic</li>
-                            <li>Firebase - Basic</li>
-                            <li>Docker - Basic</li>
-                        </ul>
+                    <div class="project-buttons">
+                        <a href="https://mindenry.github.io/TMD/"
+                            class="project-btn primary">View
+                            Project</a>
+                        <a href="https://github.com/Mindenry/TMD"
+                            class="project-btn secondary">Source
+                            Code</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="certifications" class="section">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications">
-                <div class="certification-card">
-                    <div class="certification-logo">
-                        <img src="./img/Udemy New.png"
-                            alt="Udemy Logo" class="logo-image">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="./img/reserve.png" alt="Project Image"
+                        class="project-image"> </div>
+                <div class="project-content">
+                    <h3 class="project-title">Reserve Room Meeting</h3>
+                    <p>A university meeting room reservation system built
+                        with React, Vite, JSX, and Node.js. This project
+                        allows users to book meeting rooms, view
+                        availability in real-time, and manage reservations
+                        through an intuitive dashboard.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">OracleSQL</span>
+                        <span class="tag">Vite</span>
                     </div>
-                    <h3>Udemy: Web Development Bootcamp 2024
-                    </h3>
-                    <p>Meta Frontend Developer Certificate</p>
-                    <p>Issued: 2024</p>
+                    <div class="project-buttons">
+                        <a href="#" class="project-btn primary not-deploy">Not
+                            Deploy Web</a>
+                        <a
+                            href="https://github.com/Mindenry/Reserve_MeetingRoom"
+                            class="project-btn secondary">Source
+                            Code</a>
+                    </div>
                 </div>
-                <!-- Add more certifications -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="section">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-laptop-code"
-                            style="font-size: 4rem; color: var(--primary-color); display: flex; align-items: center; justify-content: center; height: 100%;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tindog</h3>
-                        <p>A responsive website built using Bootstrap 5 to
-                            simulate a dating platform for dogs, inspired by
-                            Tinder. The project showcases modern UI/UX design,
-                            custom Bootstrap components, and seamless
-                            responsiveness across devices.</p>
-                        <div class="project-tags">
-                            <span class="tag">Bootstrap 5</span>
-                            <span class="tag">Responsive Design</span>
-                            <span class="tag">UI/UX</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-mobile-alt"
-                            style="font-size: 4rem; color: var(--primary-color); display: flex; align-items: center; justify-content: center; height: 100%;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Three Man Down Band</h3>
-                        <p>A music streaming and concert management website
-                            built using Bootstrap, HTML, CSS, and JavaScript.
-                            The platform simulates a Spotify-like experience,
-                            featuring the band's profile, discography, and an
-                            interactive music player. Users can explore upcoming
-                            concert tours and purchase tickets directly through
-                            a simulated booking system.</p>
-                        <div class="project-tags">
-                            <span class="tag">Bootstrap 5</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Ticket Booking</span>
-                            <span class="tag">Music Streaming</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-chart-line"
-                            style="font-size: 4rem; color: var(--primary-color); display: flex; align-items: center; justify-content: center; height: 100%;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Reserve Room Meeting</h3>
-                        <p>A university meeting room reservation system built
-                            with React, Vite, JSX, and Node.js. This project
-                            allows users to book meeting rooms, view
-                            availability in real-time, and manage reservations
-                            through an intuitive dashboard. The backend uses
-                            OracleSQL Instant for storing and retrieving booking
-                            data efficiently.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">OracleSQL</span>
-                            <span class="tag">Vite</span>
-                        </div>
-                    </div>
-                </div>
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>Interested in collaborating or have a project in mind? Let's
+            connect!</p>
+        <div class="social-links">
+            <a href="https://github.com/Mindenry" title="GitHub"><i
+                    class="fab fa-github"></i></a>
+            <a
+                href="https://www.linkedin.com/in/peerawit-lakhampa-627798339/"
+                title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/m1xndenry/"
+                title="Facebook"><i
+                    class="fab fa-facebook"></i>
+                <a href="https://www.instagram.com/m1xnd_pxw/"
+                    title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="mailto:peerawitm1xnd@gmail.com"
+                    title="Email"><i
+                        class="fas fa-envelope"></i></a>
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
-            <h2 class="section-title">Get In Touch</h2>
-            <p>Interested in collaborating or have a project in mind? Let's
-                connect!</p>
-            <div class="social-links">
-                <a href="https://github.com/Mindenry" title="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a
-                    href="https://www.linkedin.com/in/peerawit-lakhampa-627798339/"
-                    title="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/m1xndenry/"
-                    title="Facebook"><i
-                        class="fab fa-facebook"></i>
-                    <a href="https://www.instagram.com/m1xnd_pxw/"
-                        title="Instagram"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="mailto:peerawitm1xnd@gmail.com" title="Email"><i
-                            class="fas fa-envelope"></i></a>
-                </div>
-            </section>
+        <footer>
+            <p>&copy; 2025 Peerawit Lakhampa. All rights reserved.</p>
+        </footer>
 
-            <footer>
-                <p>&copy; 2025 Peerawit Lakhampa. All rights reserved.</p>
-            </footer>
-
-            <script>
+        <script>
             // Initialize AOS
             AOS.init({
                 duration: 1000,
@@ -1211,59 +1464,56 @@
             });
 
             // Theme Management
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
-            const body = document.body;
+// Theme Management
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+const body = document.body;
 
-            // Function to handle dark mode
-            function toggleDarkMode() {
-                body.classList.toggle('dark-mode');
-                
-                // Animate icon transition
-                themeIcon.style.transform = 'translate(-50%, -50%) rotate(180deg)';
-                setTimeout(() => {
-                    themeIcon.classList.toggle('fa-moon');
-                    themeIcon.classList.toggle('fa-sun');
-                    themeIcon.style.transform = 'translate(-50%, -50%) rotate(0deg)';
-                }, 150);
-                
-                // Save theme preference
-                localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-                console.log('Dark mode toggled:', body.classList.contains('dark-mode'));
-            }
+// Function to handle dark mode
+function toggleDarkMode() {
+    body.classList.toggle('dark-mode');
+    
+    // Animate icon transition
+    themeIcon.style.transform = 'translate(-50%, -50%) rotate(180deg)';
+    setTimeout(() => {
+        themeIcon.classList.toggle('fa-moon');
+        themeIcon.classList.toggle('fa-sun');
+        themeIcon.style.transform = 'translate(-50%, -50%) rotate(0deg)';
+    }, 150);
+    
+    // Save theme preference
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
 
-            // Function to handle color themes
-            function setTheme(theme) {
-                // Remove all theme classes
-                body.classList.remove('theme-default', 'theme-purple', 'theme-blue', 'theme-white');
-                // Add selected theme class
-                body.classList.add(`theme-${theme}`);
-                // Save theme preference
-                localStorage.setItem('selected-theme', theme);
-                console.log(`Theme switched to: ${theme}`);
-            }
+// Function to handle color themes
+function setTheme(theme) {
+    // Remove all theme classes
+    body.classList.remove('theme-default', 'theme-purple', 'theme-green', 'theme-orange');
+    // Add selected theme class
+    body.classList.add(`theme-${theme}`);
+    // Save theme preference
+    localStorage.setItem('color-theme', theme);
+    
+    // Add animation effect
+    body.style.transition = 'all 0.5s ease';
+}
 
-            // Initialize themes from localStorage
-            document.addEventListener('DOMContentLoaded', () => {
-                console.log('DOM loaded');
-                
-                // Load dark/light mode
-                const savedTheme = localStorage.getItem('theme');
-                console.log('Saved theme:', savedTheme);
-                
-                if (savedTheme === 'dark') {
-                    body.classList.add('dark-mode');
-                    themeIcon.classList.replace('fa-moon', 'fa-sun');
-                    console.log('Dark mode activated from storage');
-                }
-        
-                // Load color theme
-                const savedColorTheme = localStorage.getItem('selected-theme') || 'default';
-                setTheme(savedColorTheme);
-            });
+// Initialize themes from localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    // Load dark/light mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
 
-            // Event Listeners
-            themeToggle.addEventListener('click', toggleDarkMode);
+    // Load color theme
+    const savedColorTheme = localStorage.getItem('color-theme') || 'default';
+    setTheme(savedColorTheme);
+});
+
+// Event Listeners
+themeToggle.addEventListener('click', toggleDarkMode);
 
             // Parallax Effect
             const parallaxBg = document.createElement('div');
@@ -1319,5 +1569,5 @@
             });
         </script>
 
-        </body>
-    </html>
+    </body>
+</html>
